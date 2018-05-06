@@ -8,11 +8,12 @@
 "
 
 " current dir
-if $HOME == '/root'
-    let g:self_dir = '/home/'.$USER
-else
-    let g:self_dir = $HOME
-endif
+" if $HOME == '/root'
+"     let g:self_dir = '/home/'.$USER
+" else
+"     let g:self_dir = $HOME
+" endif
+let g:self_dir = $HOME
 
 " backup flag
 let g:backup_f=0
