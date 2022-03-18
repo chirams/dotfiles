@@ -1,0 +1,79 @@
+[include]
+    path = ~/.gitconfig.local
+[user]
+    name =
+    email =
+    useconfigonly = true
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes_global
+    editor = vim -c \"set fenc=utf-8\"
+    pager = less -r
+    autocrlf = false
+    # precomposeunicode = true
+    preloadindex = true
+[color]
+    ui = auto
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+[push]
+    # push only the current branch
+    default = current
+[merge]
+    ff = false
+[advice]
+    statusHints = true
+    pushNonFastForward = false
+[branch]
+    autosetupmerge = false
+    autosetuprebase = always
+[commit]
+    verbose = true
+[http]
+    sslverify = true
+[hub]
+    protocol = https
+[alias]
+    a   = add
+    ad  = add
+    pr  = pull --rebase
+    ci  = commit -v
+    ca  = commit -v -a
+    cim = commit -v -m '[wip] update'
+    cam = commit -v -a -m '[wip] update'
+    s   = status
+    st  = status
+    stt = status -uno
+    b   = branch
+    br  = branch
+    co  = checkout
+    fa  = fetch --all
+    fp  = fetch --prune
+
+
+    rb = rebase
+    mg = merge
+
+    # change base branch ( ex) git ff <feat_br> <base_br(now)> )
+    ff = flow feature start
+
+    ss = stash save
+    sp = stash pop
+    ls  = stash list
+
+    sh = show
+    sb = show-branch
+
+    d  = diff
+    di = diff --word-diff
+    dc = diff --cached
+    df = diff --name-only
+
+    l =  log --graph --date=short -n 20 --pretty=format:'%C(green)%h %C(reset)[%cd] %C(blue)%an %C(auto)%d %C(reset)%s'
+    ll = log --graph --date=short -n 20 --pretty=format:'%C(green)%h %C(reset)[%cd] %C(blue)%an %C(auto)%d %C(reset)%s' --name-status
+
+    lc = log --oneline -n 20 -p
+    ls = log --stat --abbrev-commit

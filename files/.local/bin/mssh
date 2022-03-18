@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+# 参考もと：http://qiita.com/tohta/items/755ae2253dc06ebcf3fd
+
+if [ -z ${TMUX} ]; then
+    echo "tmux not running."
+    exit
+fi
+
+if [ -z $1 ]; then
+    echo "can't get host domain."
+    exit
+fi
+
+PROG_TMUX=tmux
+
+${PROG_TMUX} new-window "TERM=xterm exec ssh $1"
+shift
+
+for host in "$@"; do
+  ${PROG_TMUX} split-window "TERM=xterm exec ssh $host"
+  ${PROG_TMUX} select-layout tiled > /dev/null
+  # ${PROG_TMUX} select-layout even-vertical > /dev/null
+  # ${PROG_TMUX} select-layout even-horizontal > /dev/null
+done

@@ -1,0 +1,80 @@
+# ------------------------------------------------------------------ #
+#  .screenrc
+# ------------------------------------------------------------------ #
+
+# デフォルトエンコード
+defencodig utf-8
+
+# Prefixキー
+# escape ^J^J
+escape ^K^K
+
+# スクロールバッファー
+defscrollback 10000
+
+# 起動時のメッセージ削除
+startup_message off
+
+# 端末が落ちたときに自動でデタッチ
+autodetach on
+
+# ログ設定
+log on
+deflog on
+logfile "~/.local/log/screen/screen-%Y%m%d-%n.log"
+
+# changes the name of logfile.
+logtstamp on
+logtstamp string "\n-- SCREEN [%Y/%m/%d %02c:%s] %n:%t --\n"
+
+# ビープ音をメッセージで出力(disables vbell)
+vbell off
+bind ^G
+
+# ウィンドウ番号を変更するキー
+bind N colon 'number '
+
+# switch focus to other region(like vi)
+# orverride default `k'(kill), `t'(time), `b'(break) mappings.
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+# # continuous switch focus to other region(like vi)
+# bind ^J eval 'focus down' 'command -c cfocus'
+# bind ^K eval 'focus up'   'command -c cfocus'
+# bind -c cfocus ^J eval 'focus down'   'command -c cfocus'
+# bind -c cfocus ^K eval 'focus up'     'command -c cfocus'
+# bind -c cfocus ^T eval 'focus top'    'command -c cfocus'
+# bind -c cfocus ^B eval 'focus bottom' 'command -c cfocus'
+
+# 分割している領域をリサイズ
+# orverride default `r'(wrap) mapping.
+bind r eval 'command -c cresize'
+bind -c cresize j eval 'resize +1'  'command -c cresize'
+bind -c cresize k eval 'resize -1'  'command -c cresize'
+bind -c cresize J eval 'resize +10' 'command -c cresize'
+bind -c cresize K eval 'resize -10' 'command -c cresize'
+bind -c cresize = eval 'resize ='   'command -c cresize'
+bind -c cresize n eval 'resize min' 'command -c cresize'
+bind -c cresize x eval 'resize max' 'command -c cresize'
+
+# list of all windows is displayed in the blank window(-b) for visual window selection.
+# override default `w'(windows) mapping.
+bind w  windowlist -b
+bind ^W windowlist -b -m # sorting by most-recentry-used list.
+
+# refuses yet another hack in rpm packaged screenrc.
+# both ] and ^] does write the paste (default unnamed) buffer.
+bind ^] paste .
+
+# ステータスライン
+hardstatus alwayslastline '%{= .y}[%H] %L=%{= .b}%-w%46>%{= .r}%n %t*%{= .b}%+w%-16=%{= .y}'
+
+termcapinfo xterm* Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+termcapinfo xterm* OL=100
+termcapinfo xterm* 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm* 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm* 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'

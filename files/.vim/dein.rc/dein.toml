@@ -1,0 +1,122 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+# deinの管理UI
+# :DeinUpdate
+repo = 'wsdjeg/dein-ui.vim'
+
+[[plugins]]
+# vimで非同期処理を実現
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+# ファイル操作をサポート
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+# テキスト整形ツール
+repo = 'vim-scripts/Align'
+
+[[plugins]]
+# 異なるvimプロセス間で yank/paste
+repo = 'vim-scripts/yanktmp.vim'
+
+[[plugins]]
+# 後からsudoで保存可能
+repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+# HTMLやCSSの構造を簡略で展開
+# "home>head+body" | Ctrl+y の後に , (カンマ)入力で展開される
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+# インデントに色を付けて見やすくする
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+# ログファイルを色づけしてくれる
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+# gitの差分を表示する
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+# 最後に保存してから変更が加えられた行を表示する
+repo = 'vim-scripts/changed'
+
+[[plugins]]
+# NERDTree:ツリー型エクスプローラ
+repo = 'scrooloose/nerdtree'
+
+# [[plugins]]
+# 多機能セレクタ(ファイル検索
+# repo = 'kien/ctrlp.vim'
+
+# [[plugins]]
+# # vimからctagを生成するためのプラグイン
+# repo = 'szw/vim-tags'
+
+# [[plugins]]
+# ソースコード上のメソッド宣言、変数宣言の一覧を表示
+# repo = 'vim-scripts/taglist.vim'
+
+# [[plugins]]
+# # tag管理(ctagがインストールされて居ないと意味が無い
+# repo = 'majutsushi/tagbar'
+
+# [[plugins]]
+# # tagの自動生成
+# repo = 'soramugi/auto-ctags.vim'
+
+[[plugins]]
+# 構文エラーをチェック
+repo = 'scrooloose/syntastic'
+
+# [[plugins]]
+# バッファ上のソースコードを実行して、その実行結果を Vim へ出力
+# repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+# jadeなどのシンタックス
+repo = 'digitaltoad/vim-pug'
+
+[[plugins]]
+# ステータスバーの装飾
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+# git統合環境
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+# テンプレートファイルの使用
+repo = 'thinca/vim-template'
+
+# [[plugins]]
+# 文字単位でのdiff
+# repo = 'vim-scripts/diffchar.vim'
+
+[[plugins]]
+#  ディレクトリ間のdiff
+# :DirDiff <dir1> <dir2>
+repo = 'will133/vim-dirdiff'
+
+[[plugins]]
+# 行末の空白除去
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+# テキストオブジェクト拡張
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+# plantuml
+repo = 'aklt/plantuml-syntax'
+
+# [[plugins]]
+# カラースキーマ
+# repo = ''

@@ -1,0 +1,94 @@
+# .bashrc .zshrc
+
+# ------- ------- ------- ------- ------- ------- -------
+# .local {{{
+if [ -d $HOME/.local/bin ]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# Command Variable {{{
+# grep
+# export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;37;41'
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# Environment Variable {{{
+# TERM
+export TERM=xterm-256color
+
+# colors
+case "${OSTYPE}" in
+    linux*)
+        COLORRC=~/.colorrc
+        if [ -f $COLORRC ]; then
+            eval `dircolors ~/.colorrc`
+        fi
+        ;;
+esac
+
+# C-s
+# stty stop undef
+# disable Stop (Ctrl+S)
+[ -t 0 ] && stty stop undef
+
+# Encode
+# export LANG=ja_JP.UTF-8
+# export LC_ALL=ja_JP.UTF-8
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+export LANG=C
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=
+
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# Auto ssh-add {{{
+case "${OSTYPE}" in
+    darwin*)
+        /usr/bin/ssh-add -l 2>/dev/null >/dev/null
+        if [ "$?" != 0 ]; then
+            ssh-add -K $HOME/.ssh/rsa-key 2>/dev/null >/dev/null
+        fi
+        ;;
+esac
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# homebrew setting {{{
+case "${OSTYPE}" in
+    darwin*)
+        export HOMEBREW_GITHUB_API_TOKEN=""
+        ;;
+esac
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# golang {{{
+if [ -d $HOME/go/ ]; then
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$(go env GOPATH)/bin
+fi
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# tmux {{{
+case "${OSTYPE}" in
+    linux*)
+        # tmux
+        if [ -r "$HOME/.local/bin/tmux" ]; then
+            alias tmux="LD_LIBRARY_PATH=$HOME/.local/lib $HOME/.local/bin/tmux -2"
+        fi
+        ;;
+esac
+# }}}
+

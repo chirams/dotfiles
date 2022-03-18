@@ -1,0 +1,92 @@
+# .bashrc .zshrc
+
+# ------- ------- ------- ------- ------- ------- -------
+# Common {{{
+
+# Default setting
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
+alias less="less -R"
+
+# shortcut [cd common]
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias cdgit="cd ~/git/"
+
+# shortcut [ls common]
+case "${OSTYPE}" in
+    darwin*)
+        if [ -f /usr/local/bin/gls ]; then
+            alias ls='gls -CFh --color'
+            alias rm='grm -i'
+            alias echo='gecho'
+        fi
+        ;;
+    linux*)
+        alias ls='ls -bFX --color=auto'
+        ;;
+esac
+alias ll='ls -l'
+alias lll='ll -A'
+alias llll='tree -fC'
+alias l='ll'
+
+
+# shortcut [ssh common]
+alias ssh='TERM=xterm ssh'
+# alias scp='scp -oHostKeyAlgorithms=+ssh-dss'
+
+# shortcut [Alias/Typo]
+alias vi='vim'
+alias g="git"
+alias gti="git"
+alias grpe="grep"
+alias rspec="rspec --color --tty --format documentation"
+
+# shortcut [original]
+alias resource="source ~/.bashrc"
+alias resource_profile="source ~/.bash_profile"
+alias suvi="sudo vim -u ~/.vimrc"
+
+# shortcut [curl]
+alias curl_header='curl -D - -s -o /dev/null'
+
+# alias [mac]
+case "${OSTYPE}" in
+    darwin*)
+        alias updatedb='sudo /usr/libexec/locate.updatedb'
+        alias cddesk='cd ~/Desktop/'
+        alias cddock='cd ~/Documents/'
+        alias cdtool='cd ~/Documents/Tools/'
+        alias cdwork='cd ~/Documents/Work/'
+        alias cdmemo="cd ~/Documents/memo/"
+        alias cdgit="cd ~/Documents/git/"
+        alias vit="vim ~/Documents/memo/`date +%Y`/`date +%Y-%m`/`date +%Y-%m-%d.md` -c ':%s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge | 4'"
+        alias mvit="mvim ~/Documents/memo/`date +%Y`/`date +%Y-%m`/`date +%Y-%m-%d.md` -c ':%s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge | 4'"
+        ;;
+esac
+
+# }}}
+
+
+# ------- ------- ------- ------- ------- ------- -------
+# {{{
+
+# shortcut [ssh]
+# alias sshn='ssh -A '
+
+# shortcut
+# goPlay禁止
+alias GoPlay='echo "GoPlay" is not allow ...'
+alias goplay='echo "GoPlay" is not allow ...'
+case "${OSTYPE}" in
+    linux*)
+        alias grep='grep --line-buffered --color'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+esac
+
+# }}}

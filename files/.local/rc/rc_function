@@ -1,0 +1,54 @@
+# .bashrc .zshrc
+
+# ------- ------- ------- ------- ------- ------- -------
+# self Funcion {{{
+
+# ssh sock Refresh
+function up_sock() {
+	NEWVAL=`tmux show-environment | grep "^SSH_AUTH_SOCK" | cut -d"=" -f2`
+	if [ -n "${NEWVAL}" ]; then
+	    SSH_AUTH_SOCK=${NEWVAL}
+	fi
+	echo 'sock_update : "'$SSH_AUTH_SOCK'"'
+}
+
+# Useful unarchiver!
+function unpack () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)  tar xjfv $1     ;;
+            *.tar.gz)   tar xzfv $1     ;;
+            *.tar)      tar xfv $1      ;;
+            *.tbz2)     tar xjfv $1     ;;
+            *.tgz)      tar xzfv $1     ;;
+            *.bz2)      bunzip2 -v $1   ;;
+            *.gz)       gunzip -v $1    ;;
+            *.zip)      unzip $1        ;;
+            *.xz)       tar Jxfv $1     ;;
+            *)          echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# tmux ssh
+function ssh_tmux() {
+	ssh_cmd="ssh $@"
+	tmux new-window -n "$*" "$ssh_cmd"
+}
+
+# Git info
+function init-prompt-git()
+{
+    git remote -v 2>/dev/null >/dev/null &&
+    if [ -f $GIT_PROMPT ]; then
+        echo "[$(git remote  -v  |grep fetch |grep origin | awk '$0  {print $2}' |cut -d : -f 2): $(__git_ps1 %s)]"
+    else
+        echo "[$(git remote  -v  |grep fetch |grep origin | awk '$0  {print $2}' |cut -d : -f 2): $(git symbolic-ref HEAD 2>/dev/null | sed 's/^refs\/heads\///')]"
+    fi
+    return
+
+}
+
+# }}}

@@ -1,0 +1,50 @@
+# 大文字,小文字を無視して補完
+set completion-ignore-case on
+
+# ベルを制御 [audible|visible|none]
+set bell-style none
+
+# 補完候補に識別子を表示
+set visible-stats on
+
+# 日本語入力用
+set convert-meta off
+set meta-flag on
+set output-meta on
+
+# 部分補完を即実行
+set show-all-if-unmodified on
+
+# 補完候補を即表示
+set show-all-if-ambiguous off
+
+# viモード
+# set editing-mode vi
+
+# 補完時に、ディレクトリの場合は最後に/を追加
+set mark-directories on
+
+# ドットファイルを補完対象にする
+set match-hidden-files off
+
+# ~/ を自動展開する
+set expand-tilde off
+
+
+$if bash
+
+    # キーバインド
+    "\C-^": "~/"
+
+    # Alt+**
+    "\e\"": "\eb\"\ef\""
+    "\e\'": "\eb\'\ef\'"
+    "\e\`": "\eb\`\ef\`"
+    "\e\]": "\eb\[\ef\]"
+    "\e\[": "\eb\[\ef\]"
+    "\e\}": "\eb\{\ef\}"
+    "\e\{": "\eb\{\ef\}"
+    "\e\)": "\eb\(\ef\)"
+    "\e\(": "\eb\(\ef\)"
+
+$endif
