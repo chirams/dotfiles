@@ -151,6 +151,9 @@ case "${OSTYPE}" in
     darwin*)
         ip=`ifconfig |grep "inet\s" | grep -v '127.0.0.1' | cut -d' ' -f2 | tr '\n' ',' | sed 's/,$//g'`
         ;;
+    linux-gnu)
+        ip=`ifconfig |grep "inet\s" | grep -v '127.0.0.1' | cut -d' ' -f10 | tr '\n' ',' | sed 's/,$//g'`
+        ;;
     linux*)
         ip=`hostname -i|cut -f 1 -d ' '`
         ;;
@@ -189,9 +192,9 @@ then
     COL_IP=$BBlue
     COL_KERN=$BBlue
     COL_PATH=$BBlue
-elif [ -n "`/bin/hostname | grep -e 'dev'`" ];
+elif [ -n "`/bin/hostname | grep -e 'dev' -e '.localdomain' -e .'local'`" ];
 then
-    if [ -n "`/bin/hostname | grep -e $username*`" ];
+    if [ -n "`/bin/hostname | grep -e '$username*'`" ];
     then
         # my world
         # purple[35]

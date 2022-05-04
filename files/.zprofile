@@ -18,7 +18,7 @@ fi
 
 # ------- ------- ------- ------- ------- ------- -------
 # SSH_AUTH_SOCK {{{
-
+eval `/usr/bin/ssh-agent`
 # agent="/tmp/ssh-agent-$USER"
 agent="$HOME/.ssh/agent"
 if [ -S "$SSH_AUTH_SOCK" ]; then

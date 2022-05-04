@@ -67,6 +67,14 @@ case "${OSTYPE}" in
         alias vit="vim ~/Documents/memo/`date +%Y`/`date +%Y-%m`/`date +%Y-%m-%d.md` -c ':%s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge | 4'"
         alias mvit="mvim ~/Documents/memo/`date +%Y`/`date +%Y-%m`/`date +%Y-%m-%d.md` -c ':%s/<%=\(.\{-}\)%>/\=eval(submatch(1))/ge | 4'"
         ;;
+    linux-gnu*)
+        alias cddesk='cd ~/Desktop/'
+        alias cddock='cd ~/Documents/'
+        alias cdtool='cd ~/Documents/Tools/'
+        alias cdwork='cd ~/Documents/Work/'
+        alias cdmemo="cd ~/Documents/memo/"
+        alias cdgit="cd ~/Documents/git/"
+        ;;
 esac
 
 # }}}
