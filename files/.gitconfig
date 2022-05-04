@@ -1,8 +1,8 @@
 [include]
     path = ~/.gitconfig.local
 [user]
-    name =
-    email =
+    name = chiram
+    email = 
     useconfigonly = true
 [core]
     excludesfile = ~/.gitignore

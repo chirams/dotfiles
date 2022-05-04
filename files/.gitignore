@@ -1,10 +1,8 @@
-
-# 一時ファイル
+## 一時ファイル ##
 *~
 *.swp
 *.bak
 *.bb
-
 ~*
 .swp.*
 *.tmp
@@ -13,7 +11,7 @@
 .cache/
 *.autosave
 
-# アーカイブ
+## アーカイブ ##
 *.zip
 *.lzh
 *.tar.gz
@@ -21,23 +19,21 @@
 *.bz2
 *.dmg
 
-# 証明書
+## 証明書 ##
 *.pem
 *.key
 
-# Xcord
-.DS_Store
-# .gitignore
+## Xcode ##
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 *.xcworkspace/*
 !*.xcworkspace/contents.xcworkspacedata
 
-# node
+## node ##
 node_modules/*
 coverage/*
 
-# Objectファイル
+## Objectファイル ##
 *.slo
 *.lo
 *.o
@@ -47,13 +43,14 @@ coverage/*
 *.so
 *.dylib
 *.dll
+
 ## Compiled Static libraries ##
 *.lai
 *.la
 *.a
 *.lib
 
-# 実行ファイル
+## 実行ファイル ##
 *.exe
 *.out
 *.app
@@ -67,6 +64,7 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
 ## Mac ##
 .DS_Store
 .AppleDouble
@@ -74,25 +72,29 @@ $RECYCLE.BIN/
 .Spotlight-V100
 .Trashes
 ._*
+
 ## version control system ##
 .git/
+.gitconfig
 .hg/
 .svn/
+
 ## IDE
 .idea/
 *.iml
 
-## 作業用
+## 作業用 ##
 # run.sh
 
-## maven
+## maven ##
 target/
 
-## athenz
+## athenz ##
 *.ntoken
 
-Berksfile.lock
-
-# tag
+## tag ##
 tags
 tags.lock
+
+## Chef ##
+Berksfile.lock
